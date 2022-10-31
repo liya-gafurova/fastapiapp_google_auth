@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Article">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-signin-client_id" content="611022650187-bku2b5piqeflrmreknl8to8omklnj46g.apps.googleusercontent.com">
+    <title>Google Login</title><script src="https://apis.google.com/js/platform.js" async defer></script>
+    <body>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <script>
+        function onSignIn(googleUser) {
+
+            var res = googleUser.getAuthResponse();
+            console.log(res);
+
+}
+
+    </script>
+
+</script>
+</body>
+</html>
