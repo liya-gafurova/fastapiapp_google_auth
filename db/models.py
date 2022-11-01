@@ -17,7 +17,7 @@ class User(Base):
 
     username = Column(String(50), nullable = False)
     full_name = Column(String(100))
-    email = Column(String(50))
+    email = Column(String(50), unique=True)
 
     created = Column(DateTime(timezone=True), server_default=sql.func.now())
 

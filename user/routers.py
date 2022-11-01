@@ -40,9 +40,14 @@ async def google_auth(db, user) -> tuple:
         idinfo = id_token.verify_oauth2_token(user.google_token, requests.Request(), GOOGLE_CLIENT_ID)
     except ValueError:
         raise HTTPException(403, "Bad code")
-    user = await create_user(db, user)
-    internal_token = tokenizator.create_token(user.id)
-    return user.id, internal_token.get("access_token")
+
+    user_db = crud_users.get_by_email(db, user.email)
+
+    if not user_db:
+        user_db = await create_user(db, user)
+
+    internal_token = tokenizator.create_token(user_db.id)
+    return user_db.id, internal_token.get("access_token")
 
 
 @auth_router.post('/auth/google')

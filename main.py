@@ -10,6 +10,7 @@ app = FastAPI()
 app.include_router(router, prefix='/posts', tags=['Posts'])
 app.include_router(auth_router,)
 
+
 @app.on_event('startup')
 async def init_db():
     Base.metadata.create_all(bind=engine)
