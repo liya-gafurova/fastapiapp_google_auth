@@ -1,4 +1,4 @@
-from sqlalchemy import String, Column, Text, DateTime, sql
+from sqlalchemy import String, Column, Text, DateTime, sql, Boolean
 
 from db.db import Base
 
@@ -10,3 +10,16 @@ class Post(Base):
     text = Column(Text, nullable=False)
 
     created = Column(DateTime(timezone=True), server_default=sql.func.now())
+
+
+class User(Base):
+    id = Column(String, primary_key=True)
+
+    username = Column(String(50), nullable = False)
+    full_name = Column(String(100))
+    email = Column(String(50))
+
+    created = Column(DateTime(timezone=True), server_default=sql.func.now())
+
+    is_active = Column(Boolean, server_default=sql.expression.true())
+

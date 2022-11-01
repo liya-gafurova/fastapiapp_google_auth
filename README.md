@@ -11,6 +11,7 @@ https://github.com/DJWOMS/anti_tiktok
 https://developers.google.com/identity/gsi/web/guides/handle-credential-responses-js-functions
 
 https://nilsdebruin.medium.com/fastapi-google-as-an-external-authentication-provider-3a527672cf33
+https://github.com/tiangolo/fastapi/issues/12
 
 ### Вопросы:
  1. Верный ли флоу регистрации?
